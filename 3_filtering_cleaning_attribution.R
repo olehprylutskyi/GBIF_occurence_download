@@ -9,8 +9,6 @@ library(sf)
 # Make a custom operator "not in" for `dplyr` filtering
 `%notin%` <- Negate(`%in%`)
 
-path_gbif_sf_dataset <- "./outputs/"
-
 # Vector of datasetKeys for the dataset occurrences from which we 
 # deliberately drop from the data
 dropped_datasets <- c("c779b049-28f3-4daf-bbf4-0a40830819b6") # EBCC Atlas of European Breeding Birds
