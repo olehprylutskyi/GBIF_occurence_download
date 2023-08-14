@@ -105,7 +105,7 @@ gbif_sf_dataset$URL_record[1:100]
 #     cat("No file found")
 #   }
 # }
-# 
-# # Clean the session
-# rm(list = ls())
+
+# Clean the session
+rm(list = ls())
 gc()
