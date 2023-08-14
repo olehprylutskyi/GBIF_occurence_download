@@ -116,6 +116,7 @@ all.id <- good.id %>% bind_rows(bad.id) %>%
   mutate_at("gbifID", bit64::as.integer64) # convert to integer64 format
 
 save(all.id, file = "./temp/gbifIDs.Rdata")
+# load(file = "./temp/gbifIDs.Rdata") # if you need to write it from local drive
 gc()
 # rm(list = ls()) # Reset R`s brain
 rm(good.id, bad.id, search_results)
@@ -172,9 +173,10 @@ all.occurrences <- occ_download_import(dump_dataset) %>%
          coordinatePrecision,
          verbatimLocality,
          iucnRedListCategory,
-         license) %>%
-  mutate_at("gbifID", bit64::as.integer64) %>% 
-  mutate_at(c("datasetKey",
+         license) %>% 
+  # mutate_at("gbifID", bit64::as.integer64) %>% 
+  mutate_at(c("gbifID",
+              "datasetKey",
               "scientificName",
               "verbatimScientificName",
               "eventDate",
@@ -198,6 +200,7 @@ gbif.dump <- all.occurrences %>%
 
 # Save occurrence data to local drive
 save(gbif.dump, file = "./temp/gbif_data.Rdata")
+# load(file = "./temp/gbif_data.Rdata")
 
 # Clean-up the session ####
 

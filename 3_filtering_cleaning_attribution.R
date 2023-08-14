@@ -39,11 +39,16 @@ rm(goodmatch, badmatch)
 # Load GBIF data prepared at the second step
 load(file = "./temp/gbif_data.Rdata")
 
+# gbif_sf_dataset$gbifID
+# 
+# options(scipen = 999)             # Modify global options in R
+
 # Transform data
 gbif_sf_dataset <- gbif.dump %>% 
   # rename columns
   rename(Latitude = decimalLatitude, Longitude = decimalLongitude) %>%
   # make new columns for occurrence and dataset Keys
+  # mutate_at("gbifID", as.numeric) %>%
   mutate(URL_record = paste0("https://www.gbif.org/occurrence/", gbifID)) %>%
   mutate(URL_dataset = paste0("https://www.gbif.org/dataset/", datasetKey)) %>% 
   # drop records from grid datasets
@@ -86,20 +91,21 @@ ggplot() +
 
 # Save GBIF points to local drive as Robject
 save(gbif_sf_dataset, file = "./outputs/gbif_sf_dataset.Rdata")
+load(file = "./outputs/gbif_sf_dataset.Rdata")
+gbif_sf_dataset$URL_record[1:100]
 
-
-# Delete temporary files if it exist ####
-filestodelete <- list.files(path = "./temp")
-
-for (i in 1:length(filestodelete)) {
-  if (file.exists(filestodelete[i])) {
-    file.remove(filestodelete[i])
-    cat("File deleted")
-  } else {
-    cat("No file found")
-  }
-}
-
-# Clean the session
-rm(list = ls())
+# # Delete temporary files if they exist ####
+# filestodelete <- list.files(path = "./temp")
+# 
+# for (i in 1:length(filestodelete)) {
+#   if (file.exists(filestodelete[i])) {
+#     file.remove(filestodelete[i])
+#     cat("File deleted")
+#   } else {
+#     cat("No file found")
+#   }
+# }
+# 
+# # Clean the session
+# rm(list = ls())
 gc()
