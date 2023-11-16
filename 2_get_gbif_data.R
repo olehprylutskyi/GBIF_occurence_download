@@ -272,18 +272,18 @@ save(iucn_omitted, file = "./temp/iucn_omitted.Rdata")
 
 # Clean-up the session ####
 
-# Delete zip archives with occurrence downloads
-# List all files matched pattern "zip" in the project directory
-downloaded_files <- list.files(path = "./temp", pattern = "zip")
-# Delete all listed files
-for (i in 1:length(downloaded_files)) {
-  if (file.exists(downloaded_files[i])) {
-    file.remove(downloaded_files[i])
-    cat("File deleted")
-  } else {
-    cat("No file found")
-  }
-}
+# # Delete zip archives with occurrence downloads
+# # List all files matched pattern "zip" in the project directory
+# downloaded_files <- list.files(path = "./temp", pattern = "zip")
+# # Delete all listed files
+# for (i in 1:length(downloaded_files)) {
+#   if (file.exists(downloaded_files[i])) {
+#     file.remove(downloaded_files[i])
+#     cat("File deleted")
+#   } else {
+#     cat("No file found")
+#   }
+# }
 
 rm(list = ls()) # Reset R`s brain
 gc()            # Free unused R's memory
