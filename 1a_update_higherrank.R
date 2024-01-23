@@ -53,3 +53,7 @@ higherrank_nameVariants <- not_changed_since_last_time %>%
 write.csv(previous_higherrank, "./data/higherrank_nameVariants_prev.csv")
 # Current version
 write.csv(higherrank_nameVariants, "./data/higherrank_nameVariants.csv")
+
+rm(list = ls()) # Clean-up the Environment
+
+# End of script ####
