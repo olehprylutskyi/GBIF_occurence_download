@@ -26,7 +26,7 @@ library(dplyr)
 library(rgbif)
 
 # Load input data from csv files
-df.fullredlist <- read.csv("./data/Species-protected-list-v26_cleaned_20230805.csv")
+df.fullredlist <- read.csv("./data/Species-protected-list-v27_cleaned_20240122.csv")
 
 # Match taxonomic names against the GBIF Backbone Taxonomy ####
 # Extract only taxon names and kingdom
