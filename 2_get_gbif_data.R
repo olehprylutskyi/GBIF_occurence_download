@@ -171,7 +171,7 @@ rm(good.id, bad.id, search_results)
 # preforms the query
 response <- occ_download(
   pred("hasCoordinate", TRUE),
-  pred("occurrenceStatus","PRESENT"), 
+  pred("occurrenceStatus","PRESENT"),
   pred_not(pred("basisOfRecord", "FOSSIL_SPECIMEN")),
   pred("country", country), 
   format = "DWCA"
