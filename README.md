@@ -12,7 +12,7 @@ The pipeline was developed within the project *GBIF Viewer: an open web-based bi
 
 # Records of species posessing conservation status in Ukraine
 
-![](https://github.com/olehprylutskyi/GBIF_occurence_download/blob/main/outputs/datapoints_2024-08-17.png)
+![](https://github.com/olehprylutskyi/GBIF_occurence_download/blob/main/outputs/datapoints_2025-07-06.png)
 
 # How to run the pipeline
 
